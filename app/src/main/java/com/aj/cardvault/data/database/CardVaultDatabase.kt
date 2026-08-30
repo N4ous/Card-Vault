@@ -10,7 +10,7 @@ import com.aj.cardvault.data.entity.CardEntity
 @Database(
     entities = [CardEntity::class],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 abstract class CardVaultDatabase : RoomDatabase() {
 
@@ -29,7 +29,6 @@ abstract class CardVaultDatabase : RoomDatabase() {
                     CardVaultDatabase::class.java,
                     DB_NAME
                 )
-                    // No destructive fallback in a financial-data app; migrations must be explicit.
                     .build()
                     .also { INSTANCE = it }
             }
